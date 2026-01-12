@@ -11,7 +11,7 @@ import { auth } from './components/auth';
 // Your company branding
 const COMPANY_BRANDING = {
   name: "MLM Packaging Sdn Bhd",
-  logo: "/Mlm-Packaging-Quotation-/logo.png",
+  logo: `${import.meta.env.BASE_URL || ""}logo.png`,
   tagline: "Quotation System"
 };
 
