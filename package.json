@@ -1,32 +1,29 @@
 {
-  "name": "frontend",
-  "private": true,
-  "version": "0.0.0",
-  "type": "module",
-  "homepage": "https://itintern101-commits.github.io/Mlm-Packaging-Quotation-",
-  
+  "name": "mlm-packaging-backend",
+  "version": "1.0.0",
   "scripts": {
-    "dev": "vite",
-    "build": "vite build",
-    "preview": "vite preview",
-    "predeploy": "npm run build",
-    "deploy": "gh-pages -d dist"
+    "start": "node server.js",
+    "dev": "cross-env NODE_ENV=development nodemon server.js",
+    "dev:mysql": "cross-env NODE_ENV=development DB_TYPE=mysql nodemon server.js",
+    "dev:postgres": "cross-env NODE_ENV=development DB_TYPE=postgres nodemon server.js",
+    "setup:mysql": "node scripts/setup-databases.js --mysql",
+    "setup:postgres": "node scripts/setup-databases.js --postgres",
+    "setup:all": "node scripts/setup-databases.js --all",
+    "prod": "cross-env NODE_ENV=production node server.js",
+    "test:db": "node scripts/test-database.js"
   },
-  
   "dependencies": {
-    "@react-three/drei": "^10.7.7",
-    "@react-three/fiber": "^9.4.2",
-    "react": "^19.2.0",
-    "react-dom": "^19.2.0",
-    "react-icons": "^5.5.0",
-    "three": "^0.181.2"
+    "bcryptjs": "^2.4.3",
+    "cors": "^2.8.5",
+    "dotenv": "^16.6.1",
+    "express": "^4.22.1",
+    "jsonwebtoken": "^9.0.3",
+    "mysql2": "^3.16.1",
+    "pdfkit": "^0.14.0",
+    "pg": "^8.17.1"
   },
-  
   "devDependencies": {
-    "@types/react": "^19.2.2",
-    "@types/react-dom": "^19.2.2",
-    "@vitejs/plugin-react": "^5.1.0",
-    "gh-pages": "^6.3.0",
-    "vite": "^7.2.2"
+    "cross-env": "^7.0.3",
+    "nodemon": "^3.1.11"
   }
 }
